@@ -9,6 +9,12 @@
 {% endif %}
 <hr>
 <a href ="{% url 'task-create' %}">Add Task</a>
+
+<form method="get">
+    <input type="text" name="search-area" value="{{search_input}}">
+    <input type="submit" value="Search">
+</form>
+
 <table>
     <tr>
         <th>Item</th>
@@ -20,7 +26,8 @@
     <tr>
         <td>{{task.title}}</td>
         <!-- 'tasks' was the context_object_name aka 'nickname' -->
-        <td><a href = "{% url 'tasks' task.id %}">Item</a></td>
+                <!-- defunct- item details- add in '{%' to fix -->
+        <!-- <td><a href = " #url 'tasks' task.id %}">Item Details</a></td> -->
         <td><a href = "{% url 'task-update' task.id %}">Edit</a></td>
         <td><a href="{% url 'task-delete' task.id %}">Delete</a></td>
     </tr>
