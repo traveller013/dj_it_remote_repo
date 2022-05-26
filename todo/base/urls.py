@@ -2,11 +2,15 @@ from importlib.resources import path
 from django.urls import path
 
 #from .models import task
+
 from .views import CustomizedLoginView, TaskCreate, TaskDelete, TaskDetail, TaskList, TaskUpdate,RegisterPage
     #enables logout without another template
 from django.contrib.auth.views import LogoutView
 
+#static import - recommened by djagno offical 
 
+from django.conf import settings
+from django.conf.urls.static import static 
 
 urlpatterns = [#need commas after every entry
     
@@ -21,3 +25,5 @@ urlpatterns = [#need commas after every entry
     path('task-delete/<int:pk>/', TaskDelete.as_view() , name="task-delete"),
     
 ]
+
+static(settings.STATIC_URL, document_root=settings.STATIC_ROOT)
